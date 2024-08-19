@@ -173,4 +173,12 @@ final class Timestamp implements _Serializable {
   String toString() {
     return 'Timestamp(seconds=$seconds, nanoseconds=$nanoseconds)';
   }
+
+  /// Converts [Timestamp] to [DateTime]
+  DateTime toDate() {
+    return DateTime.fromMicrosecondsSinceEpoch(
+      seconds * 1000 * 1000 + nanoseconds ~/ 1000,
+      isUtc: true,
+    );
+  }
 }
