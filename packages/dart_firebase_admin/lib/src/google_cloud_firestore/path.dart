@@ -231,7 +231,7 @@ sealed class FieldMask {
   factory FieldMask.fieldPath(FieldPath fieldPath) = _FieldPathFieldMask;
 }
 
-final _fieldPathRegex = RegExp(r'^[^*~/[\]]+$');
+final _fieldPathRegex = RegExp(r'^[^*~[\]]+$');
 
 class _StringFieldMask implements FieldMask {
   _StringFieldMask(this.path) {
@@ -258,9 +258,9 @@ class _StringFieldMask implements FieldMask {
         "Paths can't be empty and must not contain '*~/[]'.",
       );
     }
-  }
-  final String path;
 }
+  final String path;
+  }
 
 class _FieldPathFieldMask implements FieldMask {
   _FieldPathFieldMask(this.fieldPath);
